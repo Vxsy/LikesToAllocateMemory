@@ -1,3 +1,3 @@
 # LikesToAllocateMemory
 
-Very simple injector.(still learning)
+Very simple injector (still learning).
