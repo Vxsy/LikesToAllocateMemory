@@ -46,24 +46,24 @@ int main()
     get_Proc_ID(window_title, proc_id);
     if (proc_id == NULL)
     {
-        error("Process", "Failed to get process ID.");
+        error("[Process]", "Failed to get process ID.");
     }
 
     HANDLE h_process = OpenProcess(PROCESS_ALL_ACCESS, NULL, proc_id);
     if (!h_process) 
     {
-        error("Handle", "Failed to open a handle to process.");
+        error("[Handle]", "Failed to open a handle to process.");
     }
 
     void* allocated_memory = VirtualAllocEx(h_process, nullptr, MAX_PATH, MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE);
     if (!allocated_memory) 
     {
-        error("Allocation", "Failed to allocate memory.");
+        error("[Allocation]", "Failed to allocate memory.");
     }
 
     if (!WriteProcessMemory(h_process, allocated_memory, dll_path, MAX_PATH, nullptr)) 
     {
-        error("{Write]", "Failed to Write to process memory.");
+        error("[Write]", "Failed to Write to process memory.");
     }
 
     HANDLE h_thread = CreateRemoteThread(h_process, nullptr, NULL, LPTHREAD_START_ROUTINE(LoadLibraryA), allocated_memory, NULL, nullptr);
