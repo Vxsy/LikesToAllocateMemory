@@ -1,0 +1,3 @@
+# LikesToAllocateMemory
+
+Very simple injector.
