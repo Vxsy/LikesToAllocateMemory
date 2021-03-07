@@ -4,7 +4,6 @@
 #include <thread>
 #include <libloaderapi.h>
 
-// by Vx <3
 using namespace std;
 
 bool file_exists(string file_name) 
